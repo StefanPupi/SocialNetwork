@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Mirror</title>
+</head>
+<body>
+    <div id="content">
+        <div class="logo">
+            <img src="img/logo1.png" alt="" id="logo">
+        </div>
+        <h1 id="headingLogin">New social network that will help you meet new friends (online)</h1>
+        <div class="form">
+            <h2>Login</h2>
+            <form action="">
+            <label for="email">Insert e-mail</label><br>
+            <input type="email" name="email" id="email" placeholder="E-mail">
+            <br><label for="password">Insert password</label><br>
+            <input type="password" name="password" id="password" placeholder="Password"><br>
+            <button class="button">Login</button>
+        </form>
+        </div>
+        <div id="Register">
+            <p>Not registered? Do it now!</p>
+            <button class="button" id="registerbutton">Register</button>
+        </div>
+    </div>
+
+    <div class="registerform">
+        <h2>Register</h2>
+        <form action="" id="formRegister">
+        <label for="username">Insert username</label><br>
+        <input type="text" name="username" id="username" placeholder="Username"><br>
+        <label for="emailReg">Insert e-mail</label><br>
+            <input type="email" name="email" id="emailReg" placeholder="E-mail">
+            <br><label for="passwordReg">Insert password</label><br>
+            <input type="password" name="password" id="passwordReg" placeholder="Password"><br>
+            <label for="passwordconfirm">Confirm password</label><br>
+            <input type="password" name="passwordconfirm" id="passwordconfirm" placeholder="Confirm password"><br>
+            <button class="button" id="register">Register</button><button class="button" id="cancelbutton">Cancel</button>
+        </form>
+        </div>
+
+    <script src="js/Validator.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
