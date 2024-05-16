@@ -1,3 +1,10 @@
+let session = new Session();
+session = session.getSession();
+
+if(session != ""){
+    window.location.href = "mirror.html";
+}
+
 document.getElementById("registerbutton").addEventListener('click',()=>{
     document.querySelector(".registerform").style.display = 'block';
 })

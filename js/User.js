@@ -20,6 +20,15 @@ class User{
                 'Content-Type': 'application/json'
             },
             body:data
-        }).then(response => response.json()).then(data => console.log('Korisnik kreiran!'))
+        })
+        .then(response => response.json())
+        .then(data => {
+            let session = new Session()
+            session.user_id = data.id;
+            session.createSession();
+            window.location.href = 'mirror.html'
+        })
     }
+
+    
 }
