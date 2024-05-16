@@ -11,32 +11,38 @@ document.getElementById("register").addEventListener('click',e=>{
     let email = document.querySelector("#emailReg").value;
     let password = document.querySelector('#passwordReg').value;
     let passwordConfirm = document.querySelector('#passwordconfirm').value;
-    console.log(userName+email+password+passwordConfirm);
     e.preventDefault();
-    if(Validate(userName,email,password,passwordConfirm)){
-        alert("Uspesno ste se registrovali!");
-    }
-    else{
-        alert("Proverite podatke!");
+    alert(Validate(userName,email,password,passwordConfirm));
+    if(Validate(userName,email,password,passwordConfirm)=="Registration successful!"){
+        let user = new User();
+        user.username = userName;
+        user.email = email;
+        user.password = password;
+        user.create();
     }
 })
 
 function Validate(userName,email,password,passwordConfirm){
     let numOfErrors = 0;
+    let errors = "";
     if(userName.length<5){
+        errors+="Check username! "
         numOfErrors++;
     }
     if(email.length<10){
+        errors+="Check e-mail! "
         numOfErrors++;
     }
     if(password.length<8){
+        errors+="Check password! "
         numOfErrors++;
     }
     if(password!=passwordConfirm){
+        errors+="Passwords do not match! "
         numOfErrors++;
     }
-    if(numOfErrors>0){
-        return false;
+    if(numOfErrors==0){
+        return "Registration successful!";
     }
-    return true;
+    return errors;
 }
