@@ -30,5 +30,20 @@ class User{
         })
     }
 
-    
+    loginUser(){
+        fetch(this.api_url+'/users')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(db_user => {
+                if(db_user.email === this.email && db_user.password === this.password){
+                    let session = new Session();
+                    session.user_id = db_user.id
+                    session.createSession();
+                    window.location.href = 'mirror.html'
+                    return;
+                }
+            })
+        })
+        
+    }
 }

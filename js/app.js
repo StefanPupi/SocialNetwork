@@ -29,6 +29,17 @@ document.getElementById("register").addEventListener('click',e=>{
     }
 })
 
+document.querySelector("#loginForm").addEventListener('submit', e => {
+    e.preventDefault();
+    let email = document.querySelector("#email").value
+    let password = document.querySelector("#password").value
+
+    let user = new User();
+    user.email = email;
+    user.password = password;
+    user.loginUser();
+})
+
 function Validate(userName,email,password,passwordConfirm){
     let numOfErrors = 0;
     let errors = "";
