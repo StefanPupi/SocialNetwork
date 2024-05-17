@@ -85,11 +85,14 @@ input{
     margin-left: 15%;
     text-align: center;
     padding: 50px;
+    float: left;
 }
 
 #profileimage{
     width: 200px;
     height: 200px;
+    border: 3px solid white;
+    border-radius: 250px;
 }
 
 #manageprofile{
@@ -133,4 +136,60 @@ input{
     margin-left: 5%;
     text-align: center;
     padding: 50px;
+    position: right;
+}
+
+.post{
+    background-color: rgb(167, 167, 255);
+    padding: 15px;
+    margin-top: 15px;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.postcontent{
+    text-align: left;
+    font-size: 22px;
+    border-bottom: 2px solid black;
+}
+
+.comments{
+    margin-top: 16px;
+}
+
+#buttonComment{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: rgb(200, 200, 253);
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 12px
+}
+
+.interactions{
+    text-align: right;
+}
+
+.likePostJS{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: rgb(200, 200, 253);
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 12px
+}
+
+.deletePostButton{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+    background-color: rgb(252, 95, 95);
+    margin: 16px;
+    cursor: pointer;
 }

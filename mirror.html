@@ -24,10 +24,14 @@
 
         <div class="posts">
             <div class="makepost">
-                <form action="" id="post">
-                    <textarea name="text" id="text" cols="90" rows="8"></textarea><br>
+                <form action="" id="postForm">
+                    <textarea name="text" id="postContent" cols="90" rows="8"></textarea><br>
                     <button id="createpost">Create new post</button>
                 </form>
+            </div>
+
+            <div id="allposts">
+            
             </div>
         </div>
     </div>
@@ -47,10 +51,13 @@
             <button class="button" id="deleteprofile">Delete profile</button><br>
             <button class="button" id="cancelbutton">Cancel</button><br>
         </form>
+
+        
         </div>
 
 
     <script src="js/User.js"></script>
+    <script src="/js/Post.js"></script>
     <script src="js/Session.js"></script>
     <script src="js/mirror.js"></script>
 </body>

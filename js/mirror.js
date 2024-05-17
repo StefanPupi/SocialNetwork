@@ -56,3 +56,97 @@ document.querySelector('#deleteprofile').addEventListener('click', e => {
         user.deleteUser();
     }
 })
+
+document.querySelector("#postForm").addEventListener('submit', e => {
+    e.preventDefault();
+
+    async function createPost(){
+        let content = document.querySelector("#postContent").value
+        document.querySelector("#postContent").value = ""
+        let post = new Post();
+        post.post_content = content
+        post = await post.create();
+        
+        let currentUser = new User();
+        currentUser = await currentUser.getUser(session_id)
+
+        let delPostHTML = '';
+
+        if(session_id === post.user_id){
+            delPostHTML = `<button class="deletePostButton" onclick="removeMyPost(this)">Remove</button>`
+        }
+
+        let html = document.querySelector("#allposts").innerHTML
+
+        document.querySelector("#allposts").innerHTML = 
+        `<div class="post" id="${post.id}">
+            <div class="postcontent">
+                ${post.content}
+            </div>
+            <div class="interactions">
+                <p>Author: ${currentUser.username}</p>
+                <button onclick="likePost(this)" class="likePostJS like-btn"><span>${post.likes}</span> Likes</button>
+                ${delPostHTML}
+            </div>
+            <div class="comments">
+                <form>
+                    <input placeholder="Type comment" type="text">
+                    <button onclick="commentPostSubmit(event)" id="buttonComment">Comment</button>
+                </form>
+            </div>
+        </div>` + html;
+    }
+
+    createPost();
+})
+
+async function getAllPosts(){
+    let allPosts = new Post()
+    allPosts = await allPosts.getAllPosts();
+    
+    allPosts.forEach(post => {
+        async function getPostuser(){
+        let user = new User();
+        user = await user.getUser(post.user_id);
+
+        let html = document.querySelector("#allposts").innerHTML;
+
+        let delPostHTML = '';
+
+        if(session_id === post.user_id){
+            delPostHTML = `<button class="deletePostButton" onclick="removeMyPost(this)">Remove</button>`
+        }
+
+        document.querySelector("#allposts").innerHTML = 
+        `<div class="post" id="${post.id}">
+        <div class="postcontent">
+            ${post.content}
+        </div>
+        <div class="interactions">
+            <p>Author: ${user.username}</p>
+            <button onclick="likePost(this)" class="likePostJS like-btn"><span>${post.likes}</span> Likes</button>
+            ${delPostHTML}
+        </div>
+        <div class="comments">
+            <form>
+                <input placeholder="Type comment" type="text">
+                <button onclick="commentPostSubmit(event)" id="buttonComment">Comment</button>
+            </form>
+        </div>
+    </div>` + html;
+}
+getPostuser();
+});
+}
+getAllPosts();
+const commentPostSubmit = event => {
+
+}
+
+const removeMyPost = el => {
+
+}
+
+const likePost = el => {
+
+}
