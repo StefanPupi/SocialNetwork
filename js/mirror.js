@@ -139,14 +139,24 @@ getPostuser();
 });
 }
 getAllPosts();
-const commentPostSubmit = event => {
 
+const removeMyPost = btn => {
+    let post_id = btn.closest('.post').getAttribute('id')
+
+    btn.closest('.post').remove()
+
+    let post = new Post()
+    post.delete(post_id)
 }
 
-const removeMyPost = el => {
+const likePost = btn => {
+    let post = btn.closest('.post')
+    let post_id = post.getAttribute('id')
+    let numOfLikes = parseInt(btn.querySelector('span').innerText)
 
-}
+    btn.querySelector('span').innerText = numOfLikes + 1
+    btn.setAttribute('disabled', true)
 
-const likePost = el => {
-
+    let likedPost = new Post()
+    likedPost.like(post_id, numOfLikes + 1)
 }
