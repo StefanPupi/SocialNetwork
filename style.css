@@ -41,6 +41,21 @@ input{
     background-color: rgb(133, 133, 246);
     cursor: pointer;
     font-size: 24px;
+    margin-top: 12px
+}
+
+#cancelbutton{
+    background-color: rgb(252, 95, 95);
+}
+
+#deleteprofile{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 170px;
+    height: 40px;
+    background-color: rgb(252, 158, 100);
+    cursor: pointer;
+    font-size: 24px;
 }
 
 #Register{

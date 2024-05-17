@@ -30,14 +30,6 @@ class User{
         })
     }
 
-    async getUser(user_id){
-        let api_url = this.api_url + '/users/' + user_id;
-
-        let response = await fetch(api_url);
-        let data = await response.json();
-        return data;
-        }
-
     loginUser(){
         fetch(this.api_url+'/users')
         .then(response => response.json())
@@ -51,6 +43,55 @@ class User{
                     return;
                 }
             })
+        })
+    }
+
+    async getUser(user_id){
+        let api_url = this.api_url + '/users/' + user_id;
+
+        let response = await fetch(api_url);
+        let data = await response.json();
+        return data;
+        }
+
+    editUser(){
+        let data = {
+            username: this.username,
+            email: this.email,
+            password: this.password
+        };
+
+        data = JSON.stringify(data);
+
+        let session = new Session();
+        session_id = session.getSession();
+
+        fetch(this.api_url + '/users/' + session_id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: data
+        })
+        .then(response => response.json())
+        .then(data => {
+            window.location.href = 'mirror.html'
+        })
+    }
+
+    deleteUser(){
+        let session = new Session();
+        session_id = session.getSession();
+
+        fetch(this.api_url + '/users/' + session_id, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            let session = new Session();
+            session.destroySession();
+
+            window.location.href = '/' 
         })
     }
 }
