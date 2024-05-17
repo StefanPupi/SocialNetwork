@@ -30,6 +30,14 @@ class User{
         })
     }
 
+    async getUser(user_id){
+        let api_url = this.api_url + '/users/' + user_id;
+
+        let response = await fetch(api_url);
+        let data = await response.json();
+        return data;
+        }
+
     loginUser(){
         fetch(this.api_url+'/users')
         .then(response => response.json())
@@ -44,6 +52,5 @@ class User{
                 }
             })
         })
-        
     }
 }

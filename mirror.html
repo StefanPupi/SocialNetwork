@@ -3,11 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Mirror</title>
 </head>
 <body>
     <h1 id="welcome">Welcome to your profile!</h1>
 
+    <div class="content">
+        <div class="profile">
+            <div id="profilepicture">
+                <img src="/img/profile.jpg" alt="" id="profileimage">
+                <h4 id="username"></h4>
+                <h5 id="email"></h5>
+            </div>
+            <div class="settings">
+                <button id="manageprofile">Manage Profile</button><br>
+                <button id="logout">Logout</button>
+            </div>
+        </div>
+
+        <div class="posts">
+            <div class="makepost">
+                <form action="" id="post">
+                    <textarea name="text" id="text" cols="90" rows="8"></textarea><br>
+                    <button id="createpost">Create new post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/User.js"></script>
     <script src="js/Session.js"></script>
     <script src="js/mirror.js"></script>
 </body>
